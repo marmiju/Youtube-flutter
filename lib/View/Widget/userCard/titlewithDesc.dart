@@ -13,6 +13,7 @@ class Titlewithdesc extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width * 0.4,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             title,

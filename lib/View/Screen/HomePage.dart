@@ -58,14 +58,11 @@ class _HomepageState extends State<Homepage> {
             ),
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 14),
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              child: SingleChildScrollView(
-                child: _widgetOption.elementAt(_selectedIndex),
-              ),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, top: 30),
+            child: SingleChildScrollView(
+              child: _widgetOption.elementAt(_selectedIndex),
             ),
           ),
         ),
