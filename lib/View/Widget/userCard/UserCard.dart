@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:you_tube/Model/UserModel.dart';
 import 'package:you_tube/View/Widget/userCard/CircularImage.dart';
+import 'package:you_tube/View/Widget/userCard/titlewithDesc.dart';
 
 class Usercard extends StatelessWidget {
   const Usercard({
@@ -20,7 +21,8 @@ class Usercard extends StatelessWidget {
           image: user.profilePic,
           height: 70,
           width: 70,
-        )
+        ),
+        Titlewithdesc(title: user.username, desc: user.email)
       ],
     );
   }
