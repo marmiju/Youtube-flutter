@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "397661563232",
+    "project_id": "fir-77325",
+    "storage_bucket": "fir-77325.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397661563232:android:4d39c1e040b456e43c9605",
+        "android_client_info": {
+          "package_name": "com.example.you_tube"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397661563232-56vavr9iv9jq4709qv4i1u3sh6nl1abi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2dzlrO_mmLw2KacxgQKdnwtP8f-Oi33Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397661563232-56vavr9iv9jq4709qv4i1u3sh6nl1abi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "397661563232-tt1dl75ghicau67a2t2k14udv3r8vadr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.youtube"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397661563232:android:abb31dafd2cccbc63c9605",
+        "android_client_info": {
+          "package_name": "com.example.youtube"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397661563232-je4ef4q9v3bnthrt7lug7jio99ihc23k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.youtube",
+            "certificate_hash": "6264a959552b566cc692d7c2e8afe57c8d67c71c"
+          }
+        },
+        {
+          "client_id": "397661563232-56vavr9iv9jq4709qv4i1u3sh6nl1abi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2dzlrO_mmLw2KacxgQKdnwtP8f-Oi33Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397661563232-56vavr9iv9jq4709qv4i1u3sh6nl1abi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "397661563232-tt1dl75ghicau67a2t2k14udv3r8vadr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.youtube"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
