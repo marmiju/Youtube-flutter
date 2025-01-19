@@ -24,12 +24,11 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
         height: 80,
         width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(30),
-            topLeft: Radius.circular(30),
-          ),
-          border: Border.all(width: 2, color: Colors.blueGrey.shade100),
-        ),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(10),
+              topLeft: Radius.circular(10),
+            ),
+            border: Border(top: BorderSide(color: Colors.blueGrey))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

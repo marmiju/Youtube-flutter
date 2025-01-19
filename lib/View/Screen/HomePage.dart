@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:you_tube/View/Screen/Profile.dart';
 import 'package:you_tube/View/Widget/BottomNavbar.dart';
 
 class Homepage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _HomepageState extends State<Homepage> {
       child: Text('Subscription'),
     ),
     Center(
-      child: Text('Profile'),
+      child: Profile(),
     ),
   ];
 

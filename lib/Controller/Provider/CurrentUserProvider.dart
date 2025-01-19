@@ -6,7 +6,7 @@ import 'package:you_tube/Model/UserModel.dart';
 final getCurrentUserProvider = Provider((ref) => GetCurrentUser());
 
 // Define a FutureProvider to fetch the current user data
-final currentUserDataProvider = FutureProvider<Usermodel?>((ref) async {
+final currentUserDataProvider = StreamProvider<Usermodel?>((ref) {
   final getCurrentUser = ref.watch(getCurrentUserProvider);
-  return await getCurrentUser.getCurrentUserData();
+  return getCurrentUser.getCurrentUserData();
 });
