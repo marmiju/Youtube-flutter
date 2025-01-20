@@ -17,7 +17,6 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
   @override
   Widget build(BuildContext context) {
     final _currentUser = ref.watch(currentUserDataProvider);
-
     return Padding(
       padding: const EdgeInsets.only(left: 0, right: 0),
       child: Container(

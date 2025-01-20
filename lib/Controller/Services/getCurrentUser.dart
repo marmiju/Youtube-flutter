@@ -7,14 +7,20 @@ class GetCurrentUser {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
   Stream<Usermodel?> getCurrentUserData() {
+    final user = db.currentUser;
+    if (user == null) {
+      print("No user is currently logged in.${user!.displayName}");
+      return Stream.error('User is not logged in');
+    }
     try {
-      // Listen to the Firestore document in real-time using snapshots
+      print(user.email);
       return firebaseFirestore
           .collection('users')
           .doc(db.currentUser!.uid)
           .snapshots()
           .map((documentSnapshot) {
         if (documentSnapshot.exists) {
+          print(" Get User ${documentSnapshot.data()}");
           return Usermodel.fromJson(documentSnapshot.data()!);
         } else {
           print("No user data found in Firestore.");

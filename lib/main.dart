@@ -20,21 +20,41 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Youtube',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 247, 2, 2)),
-        useMaterial3: true,
-      ),
-      home: StreamBuilder(
+        debugShowCheckedModeBanner: false,
+        title: 'Youtube',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 247, 2, 2)),
+          useMaterial3: true,
+        ),
+        home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Scaffold(
+                body: Center(
+                  child: Text(
+                    "An error occurred: ${snapshot.error}",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              );
+            }
+
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+
             if (!snapshot.hasData) {
               return LogInPage();
             }
+
             return Homepage();
-          }),
-    );
+          },
+        ));
   }
 }

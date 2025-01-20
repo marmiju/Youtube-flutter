@@ -8,9 +8,12 @@ class H3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 24),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Text(
+        title,
+        style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 24),
+      ),
     );
   }
 }
