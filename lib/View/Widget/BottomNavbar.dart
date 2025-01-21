@@ -31,7 +31,6 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            // Home Button
             IconButton(
               onPressed: () {
                 setState(() {
@@ -42,11 +41,10 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
               icon: Icon(
                 index == 0 ? Icons.home : Icons.home_outlined,
                 size: 35,
-                color: Colors.black, // Change color
+                color: Colors.black,
               ),
             ),
 
-            // Shortcuts Button
             InkWell(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -108,6 +106,7 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
               child: Container(
                 padding: index == 4 ? EdgeInsets.all(3) : EdgeInsets.all(0),
                 height: 35,
+                width: 35,
                 decoration: BoxDecoration(
                     border: Border.all(width: index == 4 ? 2 : 0),
                     borderRadius: BorderRadius.circular(50)),
@@ -119,7 +118,7 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
                       child: Image.network(data!.profilePic),
                     ),
                     error: (error, stackTrace) => Center(
-                      child: Icon(Icons.cancel),
+                      child: Icon(Icons.person),
                     ),
                     loading: () => Center(
                       child: Icon(Icons.person),

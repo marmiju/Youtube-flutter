@@ -6,54 +6,42 @@ class LogoButton extends StatelessWidget {
     required this.img,
     required this.title,
     required this.btnclick,
+    this.horizentalalign,
+    this.fontweight,
   });
 
   final String img;
   final String title;
   final Function btnclick;
+  final horizentalalign;
+  final fontweight;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: InkWell(
-        onTap: () {
-          print("Button clicked!"); // Debug print
-          btnclick(); // Ensure this function is invoked
-        },
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
-            border: Border.all(width: 1, color: Colors.white),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.grey,
-                blurRadius: 10,
-                blurStyle: BlurStyle.outer,
-                spreadRadius: 2,
-                offset: Offset(1, 1),
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                img,
-                height: 40,
-                width: 40,
-              ),
-              const SizedBox(width: 10), // Add spacing between icon and text
-              Text(
-                title,
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-            ],
-          ),
+    return InkWell(
+      onTap: () {
+        btnclick();
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(width: 1, color: Colors.white),
+        ),
+        child: Row(
+          mainAxisAlignment: horizentalalign ?? MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              img,
+              height: 30,
+              width: 30,
+            ),
+            const SizedBox(width: 10), // space beetwin icon and text
+            Text(
+              title,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            ),
+          ],
         ),
       ),
     );

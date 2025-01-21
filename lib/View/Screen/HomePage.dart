@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:you_tube/View/Screen/Profile.dart';
 import 'package:you_tube/View/Widget/BottomNavbar.dart';
+import 'package:you_tube/View/Widget/pages.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -11,24 +12,6 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   int _selectedIndex = 0;
-  final List<Widget> _widgetOption = [
-    Center(
-        child: Text(
-      'Home',
-    )),
-    Center(
-      child: Text('Shorts'),
-    ),
-    Center(
-      child: Text('Upload'),
-    ),
-    Center(
-      child: Text('Subscription'),
-    ),
-    Center(
-      child: Profile(),
-    ),
-  ];
 
   @override
   Widget build(
@@ -62,7 +45,7 @@ class _HomepageState extends State<Homepage> {
           child: Padding(
             padding: const EdgeInsets.only(left: 16, top: 30),
             child: SingleChildScrollView(
-              child: _widgetOption.elementAt(_selectedIndex),
+              child: Pages.elementAt(_selectedIndex),
             ),
           ),
         ),

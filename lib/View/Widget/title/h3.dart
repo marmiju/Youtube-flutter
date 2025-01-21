@@ -12,7 +12,7 @@ class H3 extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Text(
         title,
-        style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 24),
+        style: GoogleFonts.poppins(fontWeight: FontWeight.w500, fontSize: 18),
       ),
     );
   }

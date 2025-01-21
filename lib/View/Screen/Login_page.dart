@@ -39,6 +39,7 @@ class LogInPage extends ConsumerWidget {
                 final user = await ref.read(AuthProvider).SigninWithGoogle();
                 print(user);
               },
+              horizentalalign: MainAxisAlignment.center,
             ),
           ],
         ),
