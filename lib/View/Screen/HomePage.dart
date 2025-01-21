@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:you_tube/View/Screen/Profile.dart';
 import 'package:you_tube/View/Widget/BottomNavbar.dart';
 import 'package:you_tube/View/Widget/pages.dart';
 

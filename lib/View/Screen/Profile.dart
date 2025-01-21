@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:you_tube/Controller/Listener/LogOut.dart';
 import 'package:you_tube/Controller/Provider/CurrentUserProvider.dart';
 import 'package:you_tube/View/Widget/LogoButton.dart';
 import 'package:you_tube/View/Widget/title/h3.dart';
@@ -58,28 +59,7 @@ class Profile extends ConsumerWidget {
             img: 'assets/images/leavenow.png',
             title: 'Leave Now',
             btnclick: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text('Are You Sure'),
-                      content: Text('Log Out My Account'),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text('No')),
-                        TextButton(
-                            onPressed: () {
-                              FirebaseAuth.instance.signOut();
-
-                              Navigator.pop(context);
-                            },
-                            child: Text('Yes')),
-                      ],
-                    );
-                  });
+              logOut(context);
             },
             horizentalalign: MainAxisAlignment.start,
           ),

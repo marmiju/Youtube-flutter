@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:you_tube/Controller/Listener/PickVideo.dart';
 import 'package:you_tube/View/Widget/LogoButton.dart';
 
 class Custombottomsheet extends StatelessWidget {
@@ -25,8 +26,8 @@ class Custombottomsheet extends StatelessWidget {
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(
-            sigmaX: 100,
-            sigmaY: 100,
+            sigmaX: 50,
+            sigmaY: 50,
           ),
           child: Container(
             padding: EdgeInsets.only(top: 30, bottom: 70),
@@ -37,21 +38,31 @@ class Custombottomsheet extends StatelessWidget {
               spacing: 22,
               children: [
                 LogoButton(
-                    img: 'assets/images/upvideo.png',
-                    title: "Upload video",
-                    btnclick: () {}),
+                  img: 'assets/images/upvideo.png',
+                  title: "Upload video",
+                  btnclick: () {
+                    pickvideo();
+                  },
+                  textcolor: Colors.white,
+                ),
                 LogoButton(
-                    img: 'assets/images/white_shorts.png',
-                    title: "Create Shorts",
-                    btnclick: () {}),
+                  img: 'assets/images/white_shorts.png',
+                  title: "Create Shorts",
+                  btnclick: () {},
+                  textcolor: Colors.white,
+                ),
                 LogoButton(
-                    img: 'assets/images/white_live.png',
-                    title: "Go live",
-                    btnclick: () {}),
+                  img: 'assets/images/white_live.png',
+                  title: "Go live now",
+                  btnclick: () {},
+                  textcolor: Colors.white,
+                ),
                 LogoButton(
-                    img: 'assets/images/white_post.png',
-                    title: "Create Post",
-                    btnclick: () {}),
+                  img: 'assets/images/white_post.png',
+                  title: "Create Post",
+                  btnclick: () {},
+                  textcolor: Colors.white,
+                ),
               ],
             ),
           ),
