@@ -17,16 +17,16 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -49,23 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCxTIU9eX2h2f9Fyxo_9QKlPjZHGux9jxM',
+    appId: '1:397661563232:web:fb0b3af0c513e1f43c9605',
+    messagingSenderId: '397661563232',
+    projectId: 'fir-77325',
+    authDomain: 'fir-77325.firebaseapp.com',
+    storageBucket: 'fir-77325.firebasestorage.app',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA2dzlrO_mmLw2KacxgQKdnwtP8f-Oi33Y',
-    appId: '1:397661563232:android:4d39c1e040b456e43c9605',
+    appId: '1:397661563232:android:790623fbae89c6633c9605',
     messagingSenderId: '397661563232',
     projectId: 'fir-77325',
     storageBucket: 'fir-77325.firebasestorage.app',
   );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDCIRvVBtgC1uQCxg4QM64TaWmRTJBbf3Q',
-    appId: '1:397661563232:ios:71601e2dfed380d93c9605',
-    messagingSenderId: '397661563232',
-    projectId: 'fir-77325',
-    storageBucket: 'fir-77325.firebasestorage.app',
-    androidClientId: '397661563232-je4ef4q9v3bnthrt7lug7jio99ihc23k.apps.googleusercontent.com',
-    iosClientId: '397661563232-7fo8ec5vntt7890qub9vp40qrmg8599f.apps.googleusercontent.com',
-    iosBundleId: 'com.example.youTube',
-  );
-
 }

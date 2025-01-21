@@ -21,7 +21,7 @@ class _HomepageState extends State<Homepage> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Image.asset(
-            'assets/images/youtube.png',
+            'assets/images/you_tube.png',
             width: 60,
             height: 80,
           ),
