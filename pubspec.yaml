@@ -73,6 +73,10 @@ flutter:
   - assets/images/videos.png
   - assets/images/leavenow.png
   - assets/images/downloads.png
+  - assets/images/upvideo.png
+  - assets/images/white_live.png
+  - assets/images/white_post.png
+  - assets/images/white_shorts.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

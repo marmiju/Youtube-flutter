@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Controller/Provider/CurrentUserProvider.dart';
+import 'package:you_tube/View/Widget/bottomsheed.dart';
 
 class Bottomnavigation extends ConsumerStatefulWidget {
   const Bottomnavigation({super.key, required this.navpress});
@@ -23,11 +24,11 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
         height: 80,
         width: double.infinity,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(10),
-              topLeft: Radius.circular(10),
-            ),
-            border: Border(top: BorderSide(color: Colors.blueGrey))),
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(10),
+            topLeft: Radius.circular(10),
+          ),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -60,9 +61,12 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
             // Add Button
             IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Container();
-                }));
+                showModalBottomSheet(
+                    backgroundColor: Colors.blueGrey.withAlpha(100),
+                    context: context,
+                    builder: (context) {
+                      return Custombottomsheet();
+                    });
               },
               icon: Icon(
                 Icons.add,
