@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Controller/Provider/CurrentUserProvider.dart';
+import 'package:you_tube/View/Widget/textfield/Textfield.dart';
 import 'package:you_tube/View/Widget/userCard/UserCard.dart';
 
 class Uploadingdemo extends ConsumerStatefulWidget {
@@ -21,6 +22,7 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
     final userdata = ref.watch(currentUserDataProvider);
     TextEditingController _titlecontroller = TextEditingController();
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -40,15 +42,26 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                     loading: () => Center(
                           child: CircularProgressIndicator(),
                         )),
+                SizedBox(
+                  height: 20,
+                ),
                 Form(
                     child: Column(
                   children: [
-                    TextField(
-                      style: TextStyle(color: Colors.black),
+                    Textfield(
                       controller: _titlecontroller,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                      ),
+                      hintText:
+                          "Enter Your Video title e.x @${userdata.value!.username} ",
+                      hight: 75,
+                      title: 'Video title :',
+                    ),
+                    SizedBox(height: 20),
+                    Textfield(
+                      controller: _titlecontroller,
+                      hintText:
+                          "Enter Your Video Description e.x @${userdata.value!.username} ",
+                      hight: 100,
+                      title: 'Video Description :',
                     )
                   ],
                 ))
