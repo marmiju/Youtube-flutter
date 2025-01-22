@@ -22,8 +22,8 @@ class _HomepageState extends State<Homepage> {
           backgroundColor: Colors.white,
           title: Image.asset(
             'assets/images/you_tube.png',
-            width: 60,
-            height: 80,
+            width: 50,
+            height: 60,
           ),
           actions: [
             Padding(

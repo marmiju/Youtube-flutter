@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:you_tube/View/Screen/Profile.dart';
 
 final List<Widget> Pages = [
@@ -9,7 +10,7 @@ final List<Widget> Pages = [
         height: 300,
         width: 400,
         color: const Color.fromARGB(255, 255, 31, 1),
-        child: Text("hello"),
+        child: Text(dotenv.get('APP_NAME')),
       ),
       Container(
         height: 300,
