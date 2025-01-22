@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:you_tube/Controller/Listener/PickVideo.dart';
 import 'package:you_tube/View/Widget/LogoButton.dart';
 
@@ -42,7 +41,7 @@ class Custombottomsheet extends StatelessWidget {
                   img: 'assets/images/upvideo.png',
                   title: "Upload video",
                   btnclick: () {
-                    pickvideo();
+                    pickvideo(context);
                   },
                   textcolor: Colors.white,
                 ),

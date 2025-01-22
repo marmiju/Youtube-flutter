@@ -1,9 +1,9 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:you_tube/Controller/Services/Upload_video.dart';
+import 'package:you_tube/View/Screen/uploadingdemo.dart';
 
-Future<void> pickAndUploadVideo() async {
+Future<void> pickvideo(context) async {
   XFile? file = await ImagePicker().pickVideo(source: ImageSource.gallery);
 
   if (file == null) {
@@ -11,9 +11,13 @@ Future<void> pickAndUploadVideo() async {
     return;
   }
 
-  // Convert the picked video into a File
   File video = File(file.path);
   String fileName = '${DateTime.now().toIso8601String()}.mp4';
 
-  uploadShorts(video, fileName);
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return Uploadingdemo(
+      fileName: fileName,
+      video: video,
+    );
+  }));
 }

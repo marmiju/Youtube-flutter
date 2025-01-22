@@ -7,7 +7,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:you_tube/View/Screen/HomePage.dart';
 import 'package:you_tube/View/Screen/Login_page.dart';
 import 'package:you_tube/firebase_options.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
