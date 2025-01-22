@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Controller/Listener/LogOut.dart';
 import 'package:you_tube/Controller/Provider/CurrentUserProvider.dart';
-import 'package:you_tube/View/Widget/LogoButton.dart';
+import 'package:you_tube/View/Widget/Button/LogoButton.dart';
 import 'package:you_tube/View/Widget/title/h3.dart';
 import 'package:you_tube/View/Widget/userCard/UserCard.dart';
 
@@ -48,13 +48,11 @@ class Profile extends ConsumerWidget {
             title: 'Your Videos',
             btnclick: () {},
           ),
-          SizedBox(height: 15),
           LogoButton(
             img: 'assets/images/downloads.png',
             title: 'Downloads',
             btnclick: () {},
           ),
-          SizedBox(height: 30),
           LogoButton(
             img: 'assets/images/leavenow.png',
             title: 'Leave Now',

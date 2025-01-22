@@ -11,6 +11,7 @@ class Textfield extends StatelessWidget {
   });
 
   final TextEditingController controller;
+
   final String hintText;
   final double hight;
   final title;
@@ -28,31 +29,33 @@ class Textfield extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 16, left: 14, right: 14, bottom: 14),
+          margin: EdgeInsets.only(top: 10),
+          padding: EdgeInsets.only(
+            left: 14,
+            right: 14,
+          ),
           height: hight,
           decoration: BoxDecoration(
             color: Colors.grey.shade100,
             border: Border.all(color: Colors.grey.shade200),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Center(
-            child: TextField(
-              maxLines: 2,
-              cursorColor: Colors.black,
-              style: TextStyle(
-                color: Colors.black,
-                overflow: TextOverflow.visible,
-                fontSize: 16,
-              ),
-              controller: controller,
-              cursorOpacityAnimates: true,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: hintText,
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                  )),
+          child: TextField(
+            maxLines: 2,
+            cursorColor: Colors.black,
+            style: TextStyle(
+              color: Colors.black,
+              overflow: TextOverflow.visible,
+              fontSize: 16,
             ),
+            controller: controller,
+            cursorOpacityAnimates: true,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: hintText,
+                hintStyle: TextStyle(
+                  color: Colors.grey,
+                )),
           ),
         ),
       ],
