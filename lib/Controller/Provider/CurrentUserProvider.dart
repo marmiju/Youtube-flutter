@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:you_tube/Controller/Services/getCurrentUser.dart';
+import 'package:you_tube/Controller/Services/User/getCurrentUser.dart';
 import 'package:you_tube/Model/UserModel.dart';
 
 // Define a provider for the GetCurrentUser class

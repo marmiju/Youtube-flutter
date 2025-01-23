@@ -1,5 +1,5 @@
-import 'package:you_tube/Controller/Services/Upload_video.dart';
-import 'package:you_tube/Controller/Services/videoService.dart';
+import 'package:you_tube/Controller/Services/VideoServies/Upload_video.dart';
+import 'package:you_tube/Controller/Services/VideoServies/videoService.dart';
 
 void uploadLitsener(
     title, desctiption, isPublic, thumbnail, video, fileName) async {
