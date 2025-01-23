@@ -3,7 +3,7 @@ class Usermodel {
   final String email;
   final String profilePic;
   final List subscriptions;
-  final int videos;
+  final List videos;
   final String userId;
   final String description;
   final String type;
@@ -18,6 +18,7 @@ class Usermodel {
     required this.description,
     required this.type,
   });
+
   Map<String, dynamic> toMap() {
     return {
       'username': username,
@@ -38,7 +39,7 @@ class Usermodel {
       email: json['email'] as String,
       profilePic: json['profilePic'] as String,
       subscriptions: json['subscriptions'] as List,
-      videos: json['videos'] as int,
+      videos: json['videos'] as List,
       userId: json['userId'] as String,
       description: json['description'] as String,
       type: json['type'] as String,

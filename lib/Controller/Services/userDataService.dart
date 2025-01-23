@@ -13,7 +13,7 @@ class UserDataService {
         email: auth.currentUser!.email!,
         profilePic: auth.currentUser!.photoURL!,
         subscriptions: [],
-        videos: 0,
+        videos: [],
         userId: auth.currentUser!.uid,
         description: "",
         type: 'channel',

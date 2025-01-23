@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:you_tube/Controller/Listener/upLoad_litsener.dart';
 import 'package:you_tube/Controller/Provider/CurrentUserProvider.dart';
 import 'package:you_tube/View/Widget/Button/TextButton.dart'; // Your custom TextButton widget
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
@@ -64,16 +65,14 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                           children: [
                             Textfield(
                               controller: titleController,
-                              hintText:
-                                  "Enter Your Video title e.x @${userdata.value!.username}",
+                              hintText: "Enter Your Video title ",
                               hight: 75,
                               title: 'Video title:',
                             ),
                             const SizedBox(height: 20),
                             Textfield(
                               controller: descriptionController,
-                              hintText:
-                                  "Enter Your Video Description e.x @${userdata.value!.username}",
+                              hintText: "Enter Your Video Description ",
                               hight: 120,
                               title: 'Video Description:',
                             ),
@@ -104,8 +103,19 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
               color: Colors.white, // Background color for the footer
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Center(
-                child:
-                    textButton(text: 'Next'), // Your custom TextButton widget
+                child: textButton(
+                  text: 'Upload',
+                  ontap: () {
+                    print('onpressed');
+                    uploadLitsener(
+                        titleController.value.text,
+                        descriptionController.value.text,
+                        isPublic,
+                        'assets/images/you_tube.png',
+                        widget.video,
+                        widget.fileName);
+                  },
+                ), // Your custom TextButton widget
               ),
             ),
           ],
