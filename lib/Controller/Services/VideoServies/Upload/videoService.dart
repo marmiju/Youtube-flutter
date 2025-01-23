@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:you_tube/Controller/Provider/Videos/UploadStatus.dart';
 import 'package:you_tube/Model/VideoModel.dart';
 
 class Videoservice {
@@ -21,6 +22,6 @@ class Videoservice {
         .collection('videos')
         .doc(auth.currentUser!.uid)
         .set(video.tomap());
-    print('video Upload Succesfully');
+    isUploaded().uploadstatus(true);
   }
 }

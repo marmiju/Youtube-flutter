@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:you_tube/Controller/Provider/CurrentUserProvider.dart';
+import 'package:you_tube/Controller/Provider/Users/CurrentUserProvider.dart';
 import 'package:you_tube/View/Widget/bottomsheed.dart';
 
 class Bottomnavigation extends ConsumerStatefulWidget {

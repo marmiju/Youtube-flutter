@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:you_tube/Controller/Provider/authProvider.dart';
+import 'package:you_tube/Controller/Provider/Users/authProvider.dart';
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
 
 class LogInPage extends ConsumerWidget {

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:you_tube/Controller/Services/userDataService.dart';
+import 'package:you_tube/Controller/Services/User/userDataService.dart';
 
 class AuthService {
   Future<UserCredential?> SigninWithGoogle() async {
