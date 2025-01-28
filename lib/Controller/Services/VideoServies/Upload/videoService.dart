@@ -1,13 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:you_tube/Controller/Provider/Videos/UploadStatus.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Model/VideoModel.dart';
+import 'package:you_tube/View/Screen/Profile.dart';
+import 'package:you_tube/View/Screen/uploadingdemo.dart';
 
 class Videoservice {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  Future setVideo(title, description, isPublic, thumbnail, url) async {
+  Future setVideo(title, description, isPublic, thumbnail, url, WidgetRef ref,
+      context) async {
     final video = Videomodel(
       title: title,
       description: description,
@@ -18,10 +22,35 @@ class Videoservice {
       username: auth.currentUser!.displayName!,
     );
 
-    await firestore
-        .collection('videos')
-        .doc(auth.currentUser!.uid)
-        .set(video.tomap());
-    isUploaded().uploadstatus(true);
+    try {
+      await firestore
+          .collection('videos')
+          .doc(Timestamp.now().toString())
+          .set(video.tomap());
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Uploaded video'),
+              content: Text('your video uploaded succesfully!'),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.replace(
+                        context,
+                        oldRoute: MaterialPageRoute(
+                            builder: (context) => Uploadingdemo()),
+                        newRoute: MaterialPageRoute(
+                          builder: (context) => Profile(),
+                        ),
+                      );
+                    },
+                    child: Text('Ok!'))
+              ],
+            );
+          });
+    } catch (e) {
+      throw Expando('error $e');
+    }
   }
 }

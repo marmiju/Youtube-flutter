@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Controller/Listener/upLoad_litsener.dart';
 import 'package:you_tube/Controller/Provider/Users/CurrentUserProvider.dart';
-import 'package:you_tube/View/Widget/Button/TextButton.dart'; // Your custom TextButton widget
+import 'package:you_tube/Controller/Provider/Videos/UploadStatus.dart';
+import 'package:you_tube/View/Widget/Button/TextButton.dart'; // Custom TextButton widget
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
 import 'package:you_tube/View/Widget/textfield/Textfield.dart';
 import 'package:you_tube/View/Widget/userCard/UserCard.dart';
 
 class Uploadingdemo extends ConsumerStatefulWidget {
-  const Uploadingdemo({super.key, required this.video, required this.fileName});
+  Uploadingdemo({super.key, this.video, this.fileName});
 
-  final File video;
-  final String fileName;
+  File? video;
+  String? fileName;
 
   @override
   ConsumerState<Uploadingdemo> createState() => _UploadingdemoState();
@@ -25,6 +26,7 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
   @override
   Widget build(BuildContext context) {
     final userdata = ref.watch(currentUserDataProvider);
+    final uploadStatus = ref.watch(uploadStatusProvider); // Listen to status
     TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
 
@@ -94,6 +96,19 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                           ],
                         ),
                       ),
+                      const SizedBox(height: 20),
+                      // Show status based on uploadStatus
+                      if (uploadStatus == 'uploading') ...[
+                        const CircularProgressIndicator(),
+                        const SizedBox(height: 10),
+                        const Text('Uploading video, please wait...'),
+                      ] else if (uploadStatus == 'success') ...[
+                        const Icon(Icons.check_circle, color: Colors.green),
+                        const Text('Video uploaded successfully!'),
+                      ] else if (uploadStatus == 'error') ...[
+                        const Icon(Icons.error, color: Colors.red),
+                        const Text('An error occurred during upload.'),
+                      ],
                     ],
                   ),
                 ),
@@ -106,16 +121,18 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                 child: textButton(
                   text: 'Upload',
                   ontap: () {
-                    print('onpressed');
                     uploadLitsener(
-                        titleController.value.text,
-                        descriptionController.value.text,
-                        isPublic,
-                        'assets/images/you_tube.png',
-                        widget.video,
-                        widget.fileName);
+                      titleController.text,
+                      descriptionController.text,
+                      isPublic,
+                      'assets/images/you_tube.png',
+                      widget.video,
+                      widget.fileName,
+                      context,
+                      ref,
+                    );
                   },
-                ), // Your custom TextButton widget
+                ), // Custom TextButton widget
               ),
             ),
           ],

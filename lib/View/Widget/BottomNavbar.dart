@@ -17,7 +17,7 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
 
   @override
   Widget build(BuildContext context) {
-    final _currentUser = ref.watch(currentUserDataProvider);
+    final currentUser = ref.watch(currentUserDataProvider);
     return Padding(
       padding: const EdgeInsets.only(left: 0, right: 0),
       child: Container(
@@ -117,7 +117,7 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   clipBehavior: Clip.hardEdge,
-                  child: _currentUser.when(
+                  child: currentUser.when(
                     data: (data) => Center(
                       child: Image.network(data!.profilePic),
                     ),

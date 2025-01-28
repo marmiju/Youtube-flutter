@@ -46,8 +46,6 @@ uploadShorts(video, fileName) async {
       //download file url
       final publicUrl = supabase.storage.from('videos').getPublicUrl(fileName);
       print("Download URL: $publicUrl");
-    } else {
-      print("Error uploading video: ");
     }
   } catch (e) {
     print("Error: $e");

@@ -1,12 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class isUploaded extends StateNotifier<bool> {
-  isUploaded() : super(false);
+final uploadStatusProvider =
+    StateNotifierProvider<UploadStatusNotifier, String>(
+  (ref) => UploadStatusNotifier(),
+);
 
-  uploadstatus(bool isTrue) {
-    state = isTrue;
+class UploadStatusNotifier extends StateNotifier<String> {
+  UploadStatusNotifier() : super('idle'); // Initial state is idle
+
+  void setStatus(String status) {
+    state = status;
   }
 }
-
-final uploadStatusProvider =
-    StateNotifierProvider<isUploaded, bool>((ref) => isUploaded());
