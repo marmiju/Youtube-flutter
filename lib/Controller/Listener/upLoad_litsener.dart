@@ -21,7 +21,8 @@ uploadLitsener(
 
     print('Uploading video...'); // Debug print
 
-    final videoUrl = await uploadVideo(video, fileName); // Upload video
+    final videoUrl =
+        await uploadVideo(video, fileName, context); // Upload video
     print('Video URL: $videoUrl'); // Debug print
 
     await Videoservice().setVideo(

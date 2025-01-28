@@ -3,8 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Model/VideoModel.dart';
-import 'package:you_tube/View/Screen/Profile.dart';
-import 'package:you_tube/View/Screen/uploadingdemo.dart';
+import 'package:you_tube/View/Screen/HomePage.dart';
 
 class Videoservice {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -36,14 +35,8 @@ class Videoservice {
               actions: [
                 TextButton(
                     onPressed: () {
-                      Navigator.replace(
-                        context,
-                        oldRoute: MaterialPageRoute(
-                            builder: (context) => Uploadingdemo()),
-                        newRoute: MaterialPageRoute(
-                          builder: (context) => Profile(),
-                        ),
-                      );
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Homepage()));
                     },
                     child: Text('Ok!'))
               ],

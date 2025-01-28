@@ -41,11 +41,8 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16, top: 30),
-            child: SingleChildScrollView(
-              child: Pages.elementAt(_selectedIndex),
-            ),
+          child: SingleChildScrollView(
+            child: Pages.elementAt(_selectedIndex),
           ),
         ),
         bottomNavigationBar: Bottomnavigation(

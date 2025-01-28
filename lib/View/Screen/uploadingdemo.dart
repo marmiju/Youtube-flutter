@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Controller/Listener/upLoad_litsener.dart';
 import 'package:you_tube/Controller/Provider/Users/CurrentUserProvider.dart';
 import 'package:you_tube/Controller/Provider/Videos/UploadStatus.dart';
+import 'package:you_tube/View/Screen/Profile.dart';
 import 'package:you_tube/View/Widget/Button/TextButton.dart'; // Custom TextButton widget
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
 import 'package:you_tube/View/Widget/textfield/Textfield.dart';
@@ -22,6 +23,11 @@ class Uploadingdemo extends ConsumerStatefulWidget {
 
 class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
   bool isPublic = true;
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +67,19 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                         ),
                       ),
                       const SizedBox(height: 20),
+                      // Show status based on uploadStatus
+                      if (uploadStatus == 'uploading') ...[
+                        const CircularProgressIndicator(),
+                        const SizedBox(height: 10),
+                        const Text('Uploading video, please wait...'),
+                      ] else if (uploadStatus == 'success') ...[
+                        const Icon(Icons.check_circle, color: Colors.green),
+                        const Text('Video uploaded successfully!'),
+                      ] else if (uploadStatus == 'error') ...[
+                        const Icon(Icons.error, color: Colors.red),
+                        const Text('An error occurred during upload.'),
+                      ],
+                      const SizedBox(height: 20),
                       Form(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,19 +115,6 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      // Show status based on uploadStatus
-                      if (uploadStatus == 'uploading') ...[
-                        const CircularProgressIndicator(),
-                        const SizedBox(height: 10),
-                        const Text('Uploading video, please wait...'),
-                      ] else if (uploadStatus == 'success') ...[
-                        const Icon(Icons.check_circle, color: Colors.green),
-                        const Text('Video uploaded successfully!'),
-                      ] else if (uploadStatus == 'error') ...[
-                        const Icon(Icons.error, color: Colors.red),
-                        const Text('An error occurred during upload.'),
-                      ],
                     ],
                   ),
                 ),
@@ -118,21 +124,23 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
               color: Colors.white, // Background color for the footer
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Center(
-                child: textButton(
-                  text: 'Upload',
-                  ontap: () {
-                    uploadLitsener(
-                      titleController.text,
-                      descriptionController.text,
-                      isPublic,
-                      'assets/images/you_tube.png',
-                      widget.video,
-                      widget.fileName,
-                      context,
-                      ref,
-                    );
-                  },
-                ), // Custom TextButton widget
+                child: uploadStatus == 'uploading'
+                    ? LinearProgressIndicator()
+                    : textButton(
+                        text: 'Upload',
+                        ontap: () {
+                          uploadLitsener(
+                            titleController.text,
+                            descriptionController.text,
+                            isPublic,
+                            'assets/images/you_tube.png',
+                            widget.video,
+                            widget.fileName,
+                            context,
+                            ref,
+                          );
+                        },
+                      ), // Custom TextButton widget
               ),
             ),
           ],

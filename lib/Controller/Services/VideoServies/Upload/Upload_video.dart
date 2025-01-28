@@ -1,10 +1,19 @@
+import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-uploadVideo(video, fileName) async {
+uploadVideo(video, fileName, context) async {
   final SupabaseClient supabase = Supabase.instance.client;
 
   try {
-    // Read the video file as bytes
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Uploading video'),
+            content: Text('uploading video Please wait...'),
+          );
+        });
+
     final fileBytes = await video.readAsBytes();
 
     final response = await supabase.storage.from('videos').uploadBinary(
@@ -43,7 +52,6 @@ uploadShorts(video, fileName) async {
         );
 
     if (response.isNotEmpty) {
-      //download file url
       final publicUrl = supabase.storage.from('videos').getPublicUrl(fileName);
       print("Download URL: $publicUrl");
     }
