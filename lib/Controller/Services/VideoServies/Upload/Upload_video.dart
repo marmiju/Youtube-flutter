@@ -5,15 +5,6 @@ uploadVideo(video, fileName, context) async {
   final SupabaseClient supabase = Supabase.instance.client;
 
   try {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Uploading video'),
-            content: Text('uploading video Please wait...'),
-          );
-        });
-
     final fileBytes = await video.readAsBytes();
 
     final response = await supabase.storage.from('videos').uploadBinary(
