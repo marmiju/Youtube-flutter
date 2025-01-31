@@ -3,7 +3,7 @@ import 'package:you_tube/View/Screen/Profile.dart';
 import 'package:you_tube/View/Screen/VideoScreen/VIdeoScreen.dart';
 
 final List<Widget> Pages = [
-  Center(child: Videoscreen()),
+  Videoscreen(),
   Center(
     child: Text('Shorts'),
   ),

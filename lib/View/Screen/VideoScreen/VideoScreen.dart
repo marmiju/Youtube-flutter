@@ -7,25 +7,48 @@ class Videoscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: StreamBuilder<List<Videomodel>>(
-          stream: Videos().fetchVideos(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Center(
-                child: Text('empty data'),
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              Center(
-                child: LinearProgressIndicator(),
-              );
-            }
-
+    return Scaffold(
+      body: StreamBuilder<List<Videomodel>>(
+        stream: Videos().fetchVideos(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
-              child: Text(snapshot.data![1].title ?? 'No video found'),
+              // Wrap the CircularProgressIndicator in a Center widget
+              child: CircularProgressIndicator(),
             );
-          }),
+          }
+
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Center(
+              // Wrap the Text in a Center widget
+              child: Text('No videos available'),
+            );
+          }
+          if (snapshot.hasError) {
+            return Center(
+              // Wrap the Text in a Center widget
+              child: Text('error'),
+            );
+          }
+
+          final videos = snapshot.data!;
+
+          return ListView.builder(
+            itemCount: videos.length,
+            itemBuilder: (context, index) {
+              final video = videos[index];
+              return ListTile(
+                title:
+                    Text(video.title.isEmpty ? "Untitled Video" : video.title),
+                subtitle: Text(video.username),
+                onTap: () {
+                  print("Video URL: ${video.url}");
+                },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

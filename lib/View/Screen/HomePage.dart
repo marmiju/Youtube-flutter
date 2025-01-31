@@ -41,9 +41,7 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Pages.elementAt(_selectedIndex),
-          ),
+          child: Pages.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: Bottomnavigation(
           navpress: (index) {

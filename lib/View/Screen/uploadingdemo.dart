@@ -5,12 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Controller/Listener/upLoad_litsener.dart';
 import 'package:you_tube/Controller/Provider/Users/CurrentUserProvider.dart';
 import 'package:you_tube/Controller/Provider/Videos/UploadStatus.dart';
-import 'package:you_tube/View/Screen/Profile.dart';
 import 'package:you_tube/View/Widget/Button/TextButton.dart'; // Custom TextButton widget
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
 import 'package:you_tube/View/Widget/textfield/Textfield.dart';
 import 'package:you_tube/View/Widget/userCard/UserCard.dart';
 
+// ignore: must_be_immutable
 class Uploadingdemo extends ConsumerStatefulWidget {
   Uploadingdemo({super.key, this.video, this.fileName});
 

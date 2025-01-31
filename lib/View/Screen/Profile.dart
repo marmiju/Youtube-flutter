@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:you_tube/Controller/Listener/LogOut.dart';
 import 'package:you_tube/Controller/Provider/Users/CurrentUserProvider.dart';
-import 'package:you_tube/Controller/Provider/Videos/UploadStatus.dart';
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
 import 'package:you_tube/View/Widget/title/h3.dart';
 import 'package:you_tube/View/Widget/userCard/UserCard.dart';
