@@ -9,23 +9,45 @@ class VideoBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: ClipRRect(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              video.thumbnail,
-              width: double.infinity,
-              fit: BoxFit.cover,
+            child: Stack(
+              children: [
+                Image.network(
+                  video.thumbnail,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                  bottom: 0, // Align at the bottom
+                  left: 0, // Align to the left
+                  right: 0, // Stretch to full width
+                  child: LinearProgressIndicator(
+                    color: Colors.red,
+                    value: 0.6,
+                    minHeight: 5,
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
-        SizedBox(height: 10),
-        Titlewithdesc(title: video.title, desc: video.description)
-      ],
+          SizedBox(height: 10),
+          Titlewithdesc(
+            title: video.title,
+            desc: video.description,
+            titlesize: 18,
+            descsize: 14,
+          ),
+          Text(video.views >= 1000
+              ? '${(video.views / 1000).toStringAsFixed(0)}K Viwes'
+              : '${video.views} Views')
+        ],
+      ),
     );
   }
 }

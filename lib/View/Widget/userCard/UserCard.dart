@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:you_tube/Model/UserModel.dart';
 import 'package:you_tube/View/Widget/userCard/CircularImage.dart';
 import 'package:you_tube/View/Widget/userCard/titlewithDesc.dart';
 
 class Usercard extends StatelessWidget {
   const Usercard({
     super.key,
-    required this.user,
+    this.user,
   });
 
-  final Usermodel user;
+  final user;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,15 @@ class Usercard extends StatelessWidget {
           height: 70,
           width: 70,
         ),
-        Titlewithdesc(title: user.username, desc: user.email)
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Titlewithdesc(
+            title: user.username,
+            desc: user.email,
+            titlesize: 24,
+            descsize: 16,
+          ),
+        ),
       ],
     );
   }

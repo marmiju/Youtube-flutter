@@ -22,8 +22,6 @@ class Profile extends ConsumerWidget {
             user.when(
                 data: (data) => Usercard(user: data!),
                 error: (err, s) {
-                  print(FirebaseAuth.instance.currentUser!.displayName);
-                  print(err);
                   return Text(err.toString());
                 },
                 loading: () => Center(
