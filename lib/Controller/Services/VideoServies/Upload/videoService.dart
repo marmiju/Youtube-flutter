@@ -12,14 +12,14 @@ class Videoservice {
   Future setVideo(title, description, isPublic, thumbnail, url, WidgetRef ref,
       context) async {
     final video = Videomodel(
-      title: title,
-      description: description,
-      isPublic: isPublic,
-      thumbnail: thumbnail,
-      author: auth.currentUser!.uid,
-      url: url,
-      username: auth.currentUser!.displayName!,
-    );
+        title: title,
+        description: description,
+        isPublic: isPublic,
+        thumbnail: thumbnail,
+        author: auth.currentUser!.uid,
+        url: url,
+        username: auth.currentUser!.displayName!,
+        views: 0);
 
     try {
       await firestore

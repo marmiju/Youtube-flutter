@@ -10,7 +10,6 @@ class Titlewithdesc extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 10),
-      width: MediaQuery.sizeOf(context).width * 0.4,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
