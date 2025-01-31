@@ -44,6 +44,7 @@ dependencies:
   firebase_storage: ^12.4.1
   supabase_flutter: ^2.8.3
   flutter_dotenv: ^5.2.1
+  lottie: ^3.3.1
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,9 @@ flutter:
   - assets/images/white_post.png
   - assets/images/white_shorts.png
   - assets/images/privacy.png
+  - assets/lottie/error.json  #lottie  animation -- error
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

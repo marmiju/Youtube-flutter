@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:you_tube/Controller/Services/VideoServies/fetchvideo.dart';
 import 'package:you_tube/Model/VideoModel.dart';
+import 'package:you_tube/View/Screen/error/errorpage.dart';
 
 class Videoscreen extends StatelessWidget {
   const Videoscreen({super.key});
@@ -8,27 +9,22 @@ class Videoscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: StreamBuilder<List<Videomodel>>(
         stream: Videos().fetchVideos(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
-              // Wrap the CircularProgressIndicator in a Center widget
               child: CircularProgressIndicator(),
             );
           }
-
           if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return Center(
-              // Wrap the Text in a Center widget
               child: Text('No videos available'),
             );
           }
           if (snapshot.hasError) {
-            return Center(
-              // Wrap the Text in a Center widget
-              child: Text('error'),
-            );
+            return Errorpage();
           }
 
           final videos = snapshot.data!;
@@ -41,9 +37,7 @@ class Videoscreen extends StatelessWidget {
                 title:
                     Text(video.title.isEmpty ? "Untitled Video" : video.title),
                 subtitle: Text(video.username),
-                onTap: () {
-                  print("Video URL: ${video.url}");
-                },
+                onTap: () {},
               );
             },
           );
