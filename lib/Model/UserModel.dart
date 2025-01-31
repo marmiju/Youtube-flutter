@@ -2,21 +2,21 @@ class Usermodel {
   final String username;
   final String email;
   final String profilePic;
-  final List subscriptions;
-  final List videos;
+  final subscriptions;
+  final videos;
   final String userId;
-  final String description;
-  final String type;
+  final description;
+  final type;
 
   Usermodel({
     required this.username,
     required this.email,
     required this.profilePic,
-    required this.subscriptions,
-    required this.videos,
+    this.subscriptions,
+    this.videos,
     required this.userId,
-    required this.description,
-    required this.type,
+    this.description,
+    this.type,
   });
 
   Map<String, dynamic> toMap() {

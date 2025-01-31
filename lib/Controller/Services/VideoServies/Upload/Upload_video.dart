@@ -16,7 +16,6 @@ uploadVideo(video, fileName, context) async {
         );
 
     if (response.isNotEmpty) {
-      //download file url
       final publicUrl = supabase.storage.from('videos').getPublicUrl(fileName);
       return publicUrl;
     } else {}

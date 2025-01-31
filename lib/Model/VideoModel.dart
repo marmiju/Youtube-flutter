@@ -1,12 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Videomodel {
   final String title;
   final String description;
   final bool isPublic;
   final url;
   final thumbnail;
-  final String author;
   final String username;
   final int views;
+  final String author;
+  final Timestamp publishDate;
 
   Videomodel({
     required this.title,
@@ -17,6 +20,7 @@ class Videomodel {
     required this.url,
     required this.username,
     required this.views,
+    required this.publishDate,
   });
 
   Map<String, dynamic> tomap() {
@@ -29,18 +33,21 @@ class Videomodel {
       'url': url,
       'username': username,
       'views': views,
+      'publishDate': publishDate,
     };
   }
 
   factory Videomodel.fromJson(Map<String, dynamic> json) {
     return Videomodel(
-        title: json['title'] as String,
-        description: json['description'] as String,
-        isPublic: json['isPublic'] as bool,
-        thumbnail: json['thumbnail'],
-        author: json['author'] as String,
-        url: json['url'],
-        username: json['username'],
-        views: json['views']);
+      title: json['title'] as String,
+      description: json['description'] as String,
+      isPublic: json['isPublic'] as bool,
+      thumbnail: json['thumbnail'],
+      author: json['author'],
+      url: json['url'],
+      username: json['username'],
+      views: json['views'],
+      publishDate: json['publishDate'],
+    );
   }
 }

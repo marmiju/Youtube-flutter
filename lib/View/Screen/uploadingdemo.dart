@@ -51,8 +51,8 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         clipBehavior: Clip.hardEdge,
-                        child: Image.asset(
-                          'assets/images/you_tube.png',
+                        child: Image.network(
+                          'https://startupgeek.com/wp-content/uploads/2023/09/MrBeast.jpg',
                           height: 150,
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -133,7 +133,7 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                             titleController.text,
                             descriptionController.text,
                             isPublic,
-                            'assets/images/you_tube.png',
+                            'https://startupgeek.com/wp-content/uploads/2023/09/MrBeast.jpg',
                             widget.video,
                             widget.fileName,
                             context,

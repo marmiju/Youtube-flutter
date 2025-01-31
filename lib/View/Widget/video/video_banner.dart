@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:you_tube/Model/VideoModel.dart';
 import 'package:you_tube/View/Widget/userCard/titlewithDesc.dart';
@@ -6,6 +7,26 @@ class VideoBanner extends StatelessWidget {
   const VideoBanner({super.key, required this.video});
 
   final Videomodel video;
+
+  String timeAgo(Timestamp timestamp) {
+    final DateTime now = DateTime.now();
+    final DateTime dateTime = timestamp.toDate();
+    final Duration difference = now.difference(dateTime);
+
+    if (difference.inSeconds < 60) {
+      return "${difference.inSeconds} seconds ago";
+    } else if (difference.inMinutes < 60) {
+      return "${difference.inMinutes} minutes ago";
+    } else if (difference.inHours < 24) {
+      return "${difference.inHours} hours ago";
+    } else if (difference.inDays < 30) {
+      return "${difference.inDays} days ago";
+    } else if (difference.inDays < 365) {
+      return "${difference.inDays ~/ 30} months ago";
+    } else {
+      return "${difference.inDays ~/ 365} years ago";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +64,8 @@ class VideoBanner extends StatelessWidget {
             titlesize: 18,
             descsize: 14,
           ),
-          Text(video.views >= 1000
-              ? '${(video.views / 1000).toStringAsFixed(0)}K Viwes'
-              : '${video.views} Views')
+          Text(
+              '${video.username} . ${video.views >= 1000 ? '${(video.views / 1000).toStringAsFixed(1)}K Views' : '${video.views} Views'} . ${timeAgo(video.publishDate)}'),
         ],
       ),
     );
