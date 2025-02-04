@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:you_tube/Controller/Listener/PickVideo.dart';
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
@@ -26,8 +25,8 @@ class Custombottomsheet extends StatelessWidget {
         ),
         child: BackdropFilter(
           filter: ImageFilter.blur(
-            sigmaX: 50,
-            sigmaY: 50,
+            sigmaX: 20,
+            sigmaY: 20,
           ),
           child: Container(
             padding: EdgeInsets.only(top: 30, bottom: 50),

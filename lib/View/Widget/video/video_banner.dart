@@ -42,7 +42,15 @@ class VideoBanner extends StatelessWidget {
                 Image.network(
                   video.thumbnail,
                   width: double.infinity,
+                  height: 180, // Set a fixed height to avoid overflow
                   fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) return child;
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                  errorBuilder: (context, error, stackTrace) => const Center(
+                      child: Icon(Icons.broken_image,
+                          size: 50, color: Colors.red)),
                 ),
                 Positioned(
                   bottom: 0, // Align at the bottom
@@ -50,22 +58,46 @@ class VideoBanner extends StatelessWidget {
                   right: 0, // Stretch to full width
                   child: LinearProgressIndicator(
                     color: Colors.red,
-                    value: 0.6,
+                    value: 0.6, // Should be dynamic based on progress
                     minHeight: 5,
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 10),
-          Titlewithdesc(
-            title: video.title,
-            desc: video.description,
-            titlesize: 18,
-            descsize: 14,
+          const SizedBox(height: 10),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                radius: 22,
+                backgroundImage:
+                    video.profilepic != null && video.profilepic!.isNotEmpty
+                        ? NetworkImage(video.profilepic!)
+                        : const AssetImage('assets/images/google.png')
+                            as ImageProvider,
+              ),
+              const SizedBox(width: 10), // Spacing between avatar and text
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Titlewithdesc(
+                      title: video.title,
+                      desc: video.description,
+                      titlesize: 18,
+                      descsize: 14,
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      '${video.username} • ${video.views >= 1000 ? '${(video.views / 1000).toStringAsFixed(1)}K' : video.views} Views • ${timeAgo(video.publishDate)}',
+                      style: TextStyle(color: Colors.grey[700], fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Text(
-              '${video.username} . ${video.views >= 1000 ? '${(video.views / 1000).toStringAsFixed(1)}K Views' : '${video.views} Views'} . ${timeAgo(video.publishDate)}'),
         ],
       ),
     );

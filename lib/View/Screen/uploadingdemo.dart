@@ -72,9 +72,10 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                         const CircularProgressIndicator(),
                         const SizedBox(height: 10),
                         const Text('Uploading video, please wait...'),
-                      ] else if (uploadStatus == 'success') ...[
-                        const Icon(Icons.check_circle, color: Colors.green),
-                        const Text('Video uploaded successfully!'),
+                      ] else if (uploadStatus == 'success')
+                        ...[
+    
+                        
                       ] else if (uploadStatus == 'error') ...[
                         const Icon(Icons.error, color: Colors.red),
                         const Text('An error occurred during upload.'),

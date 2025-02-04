@@ -28,7 +28,6 @@ uploadLitsener(
     await Videoservice().setVideo(
         title, description, isPublic, thumbnail, videoUrl, ref, context);
 
-    // Set status to success
     uploadStatusNotifier.setStatus('success');
   } catch (e) {
     print('Error: $e'); // Debug error

@@ -16,7 +16,10 @@ class Videoscreen extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: Container(
+                height: 200,
+                color: Colors.grey.shade100,
+              ),
             );
           }
           if (!snapshot.hasData || snapshot.data!.isEmpty) {

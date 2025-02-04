@@ -64,7 +64,9 @@ class _BottomnavigationState extends ConsumerState<Bottomnavigation> {
                 showModalBottomSheet(
                     backgroundColor: Colors.blueGrey.withAlpha(100),
                     context: context,
-                    builder: (context) {
+                    builder: (
+                      context,
+                    ) {
                       return Custombottomsheet();
                     });
               },

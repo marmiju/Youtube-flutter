@@ -10,18 +10,19 @@ class Videomodel {
   final int views;
   final String author;
   final Timestamp publishDate;
+  final profilepic;
 
-  Videomodel({
-    required this.title,
-    required this.description,
-    required this.isPublic,
-    required this.thumbnail,
-    required this.author,
-    required this.url,
-    required this.username,
-    required this.views,
-    required this.publishDate,
-  });
+  Videomodel(
+      {required this.title,
+      required this.description,
+      required this.isPublic,
+      required this.thumbnail,
+      required this.author,
+      required this.url,
+      required this.username,
+      required this.views,
+      required this.publishDate,
+      required this.profilepic});
 
   Map<String, dynamic> tomap() {
     return {
@@ -34,20 +35,21 @@ class Videomodel {
       'username': username,
       'views': views,
       'publishDate': publishDate,
+      'profilepic': profilepic
     };
   }
 
   factory Videomodel.fromJson(Map<String, dynamic> json) {
     return Videomodel(
-      title: json['title'] as String,
-      description: json['description'] as String,
-      isPublic: json['isPublic'] as bool,
-      thumbnail: json['thumbnail'],
-      author: json['author'],
-      url: json['url'],
-      username: json['username'],
-      views: json['views'],
-      publishDate: json['publishDate'],
-    );
+        title: json['title'] as String,
+        description: json['description'] as String,
+        isPublic: json['isPublic'] as bool,
+        thumbnail: json['thumbnail'],
+        author: json['author'],
+        url: json['url'],
+        username: json['username'],
+        views: json['views'],
+        publishDate: json['publishDate'],
+        profilepic: json['profilepic']);
   }
 }
