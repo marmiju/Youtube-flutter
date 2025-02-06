@@ -26,10 +26,7 @@ class Videoservice {
         profilepic: auth.currentUser!.photoURL);
 
     try {
-      await firestore
-          .collection('videos')
-          .doc(Timestamp.now().toString())
-          .set(video.tomap());
+      await firestore.collection('videos').doc().set(video.tomap());
 
       uploadStatusNotifier.setStatus('success');
 

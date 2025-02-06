@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Titlewithdesc extends StatelessWidget {
-  const Titlewithdesc(
-      {super.key,
-      required this.title,
-      required this.desc,
-      required this.titlesize,
-      required this.descsize});
+  const Titlewithdesc({
+    super.key,
+    required this.title,
+    required this.desc,
+    required this.titlesize,
+    required this.descsize,
+  });
 
   final String title;
-  final String desc;
+  final desc;
   final double titlesize;
   final double descsize;
 

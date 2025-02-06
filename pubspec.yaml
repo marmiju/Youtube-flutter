@@ -46,6 +46,7 @@ dependencies:
   flutter_dotenv: ^5.2.1
   lottie: ^3.3.1
   image_cacheing: ^0.0.2
+  uuid: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -85,6 +86,7 @@ flutter:
   - assets/images/white_post.png
   - assets/images/white_shorts.png
   - assets/images/privacy.png
+  - assets/images/thumbnail.png
   - assets/lottie/error.json  #lottie  animation -- error
 
 

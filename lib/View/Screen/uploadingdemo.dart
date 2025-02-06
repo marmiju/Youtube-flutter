@@ -2,11 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:you_tube/Controller/Listener/upLoad_litsener.dart';
+import 'package:you_tube/Controller/Listener/video/upLoad_litsener.dart';
 import 'package:you_tube/Controller/Provider/Users/CurrentUserProvider.dart';
 import 'package:you_tube/Controller/Provider/Videos/UploadStatus.dart';
 import 'package:you_tube/View/Widget/Button/TextButton.dart'; // Custom TextButton widget
 import 'package:you_tube/View/Widget/Button/LogoButton.dart';
+import 'package:you_tube/View/Widget/Thumbnail/thumbnail.dart';
 import 'package:you_tube/View/Widget/textfield/Textfield.dart';
 import 'package:you_tube/View/Widget/userCard/UserCard.dart';
 
@@ -23,6 +24,7 @@ class Uploadingdemo extends ConsumerStatefulWidget {
 
 class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
   bool isPublic = true;
+  File? _thumbail;
 
   @override
   void dispose() {
@@ -48,16 +50,10 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        clipBehavior: Clip.hardEdge,
-                        child: Image.network(
-                          'https://startupgeek.com/wp-content/uploads/2023/09/MrBeast.jpg',
-                          height: 150,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                      Thumbnail(onpickimage: (image) {
+                        _thumbail = image;
+                      }),
+                      //===========================
                       const SizedBox(height: 20),
                       userdata.when(
                         data: (data) => Usercard(user: data!),
@@ -94,7 +90,7 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                             const SizedBox(height: 20),
                             Textfield(
                               controller: descriptionController,
-                              hintText: "Enter Your Video Description ",
+                              hintText: "Enter Your Video Description",
                               hight: 120,
                               title: 'Video Description:',
                             ),
@@ -134,7 +130,7 @@ class _UploadingdemoState extends ConsumerState<Uploadingdemo> {
                             titleController.text,
                             descriptionController.text,
                             isPublic,
-                            'https://startupgeek.com/wp-content/uploads/2023/09/MrBeast.jpg',
+                            _thumbail,
                             widget.video,
                             widget.fileName,
                             context,

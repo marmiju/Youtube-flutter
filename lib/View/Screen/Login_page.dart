@@ -36,7 +36,7 @@ class LogInPage extends ConsumerWidget {
               img: 'assets/images/google.png',
               title: 'log in with Google',
               btnclick: () async {
-                final user = await ref.read(AuthProvider).SigninWithGoogle();
+                final user = await ref.read(AuthProvider).signInWithGoogle();
                 print(user);
               },
               horizentalalign: MainAxisAlignment.center,

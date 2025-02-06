@@ -42,7 +42,8 @@ class VideoBanner extends StatelessWidget {
                 Image.network(
                   video.thumbnail,
                   width: double.infinity,
-                  height: 180, // Set a fixed height to avoid overflow
+                  height: MediaQuery.sizeOf(context).width *
+                      0.54, // Set a fixed height to avoid overflow
                   fit: BoxFit.cover,
                   loadingBuilder: (context, child, loadingProgress) {
                     if (loadingProgress == null) return child;
@@ -85,7 +86,7 @@ class VideoBanner extends StatelessWidget {
                     Titlewithdesc(
                       title: video.title,
                       desc: video.description,
-                      titlesize: 18,
+                      titlesize: 16,
                       descsize: 14,
                     ),
                     const SizedBox(height: 5),
